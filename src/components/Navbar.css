@@ -1,87 +1,30 @@
-/* Navbar Styles */
-nav {
-  background-color: #6f42c1;
-  color: #ffffff;
-  padding: 1.2rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  border-radius: 0 0 15px 15px;
-  font-family: Arial, sans-serif;
+.navbar-custom {
+  padding: 10px 20px; 
+  padding-left: 100px;/* Adjust padding around the navbar */
 }
 
-nav h1 {
-  font-size: 1.8rem;
+.brand-left {
+  font-size: 24px; /* Font size for the bank name */
   font-weight: bold;
-  color: #ffcc00;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  margin-left: 10px;
+  padding-left: 50px; /* Add some space to the left of the bank name */
 }
 
-nav h1:hover {
-  transform: scale(1.1);
+.navbar-nav {
+  margin-left: auto; /* Pushes all nav links to the right */
+  padding-right: 50px;
 }
 
-nav ul {
-  list-style-type: none;
-  display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
+.navbar-nav .nav-item .nav-link {
+  font-size: 16px; /* Font size for navigation links */
+  color: #fff;
+  padding-right: 20px;
 }
 
-nav ul li {
-  font-size: 1rem;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
+.navbar-nav .nav-item .nav-link:hover {
+  color: #0d6efd; /* Blue color when hovered */
 }
 
-nav ul li a {
-  color: #ffffff;
-  text-decoration: none;
-  padding: 0.3rem;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #ffcc00;
-  transform: scale(1.05);
-}
-
-/* Underline Effect */
-nav ul li::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: #ffcc00;
-  bottom: -4px;
-  left: 0;
-  transition: width 0.4s ease;
-}
-
-nav ul li:hover::after {
-  width: 100%;
-}
-
-/* Navbar Link Hover Background Animation */
-nav ul li:hover {
-  color: #ffcc00;
-}
-
-/* Additional Navbar Styles */
-@media (max-width: 768px) {
-  nav ul {
-      gap: 1rem;
-  }
-
-  nav h1 {
-      font-size: 1.5rem;
-  }
-
-  nav ul li {
-      font-size: 0.9rem;
-  }
+button {
+  margin-left: 10px;
 }

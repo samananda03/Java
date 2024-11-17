@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Navbar, Nav, Button } from 'react-bootstrap';
 import './Navbar.css';
 
-const Navbar = () => {
+const CustomNavbar = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
@@ -20,29 +21,51 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <h1><Link to="/home">PaisaFi</Link></h1>
-      <ul>
-        <li><Link to="/about">About Us</Link></li>
-        <li><Link to="/help">Help</Link></li>
+    <Navbar bg="dark" variant="dark" expand="lg" className="navbar-custom">
+      <Navbar.Brand as={Link} to="/" className="brand-left">PaisaFi</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          {/* Links on the right side */}
+          <Nav.Item>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="/about">About Us</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="/help">Help</Nav.Link>
+          </Nav.Item>
 
-        {/* Conditionally render links based on user login status */}
-        {user ? (
-          <>
-            <li><Link to="/dashboard">Dashboard</Link></li>
-            <li><Link to="/account-details">Account Details</Link></li>
-            <li><Link to="/transactions">Transactions</Link></li>
-            <li><button onClick={handleLogout}>Logout</button></li>
-          </>
-        ) : (
-          <>
-            <li><Link to="/signup">Sign Up</Link></li>
-            <li><Link to="/login">Login</Link></li>
-          </>
-        )}
-      </ul>
-    </nav>
+          {user ? (
+            <>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/account-details">Account Details</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/transactions">Transactions</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
+              </Nav.Item>
+            </>
+          ) : (
+            <>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/login">Login</Nav.Link>
+              </Nav.Item>
+            </>
+          )}
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default CustomNavbar;
